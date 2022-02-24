@@ -10,6 +10,8 @@
 
             제목 : <input type="text" name="title"> <br />
 
+            내용 : <textarea style="width:400px;height:300px" name="content"></textarea>
+
             <input type="submit" value="등록하기"> 
 
         </form>
