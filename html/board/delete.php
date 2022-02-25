@@ -1,19 +1,25 @@
 <?php
 
-include "../db.php";
+    # db 연결
+    include "../db.php";
 
-$id = $_GET["_id"];
+    # GET 방식으로 값 받아오기
+    $_id = $_GET["_id"];
 
-$sql = "
-DELETE FROM board 
-WHERE _id= ".$id."
-";
+    # 받아온 값으로 sql 쿼리문 만들기
+    $sql = "
+    DELETE FROM
+        board
+    WHERE
+        _id = ".$_id."
+    ;
+    ";
 
-// echo $sql;
+    # 쿼리 동작 수행
+    $conn->query($sql);
 
-$conn->query($sql);
-
-$conn->close();
+    # db 연결 종료
+    $conn->close();
 
 ?>
 

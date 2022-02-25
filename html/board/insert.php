@@ -1,24 +1,34 @@
 <?php
 
-include "../db.php";
+    // echo $_POST["name"];
+    // echo $_POST["title"];
+    // echo $_POST["content"];
 
-$name = $_POST["name"];
+    // exit();
 
-$title = $_POST["title"];
-$content = $_POST["content"];
+    # db 연결
+    include "../db.php";
 
-$sql = "
-INSERT INTO board (name,title,content)
-VALUES ('". $name ."','". $title ."','". $content ."')
-";
+    # POST로 받아온 값 변수에 저장
+    $name = $_POST["name"];
+    $title = $_POST["title"];
+    $content = $_POST["content"];
 
-// echo $sql;
+    # 변수를 사용해서 sql문 작성
+    $sql = "
+    INSERT INTO board (name,title,content)
+    VALUES ('". $name ."','". $title ."','".$content."')
+    ";
 
-// exit();
+    echo $sql;
 
-$conn->query($sql);
+    exit();
 
-$conn->close();
+    # mysql에 쿼리 수행
+    $conn->query($sql);
+
+    # mysql과의 연결 종료
+    $conn->close();
 
 ?>
 
