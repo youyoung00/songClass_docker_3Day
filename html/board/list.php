@@ -1,6 +1,9 @@
 <?php 
     include "../db.php";
 
+    if($_SESSION["board_name"] == '')
+        $_SESSION["board_name"] = "자유";
+
     $total_sql = "SELECT count(*) as total FROM board";
 
     $total_result = $conn->query($total_sql);
@@ -23,9 +26,13 @@
         view_count 
     FROM 
         board 
+    WHERE
+        board_name = '".$_SESSION['board_name']."'
     order by _id desc
     LIMIT ".$config_list_set_count * ($now_page-1).",".$config_list_set_count."
     ";
+
+    
  
  
     $result = $conn->query($sql);
@@ -39,6 +46,12 @@
     </head>
     <body>
 
+        게시판 바로가기 : 
+        <a href='board_change.php?board_name=자유'>자유게시판</a>
+        <a href='board_change.php?board_name=장터'>장터게시판</a>
+        <a href='board_change.php?board_name=임시'>임시게시판</a>
+        <hr>
+
         <table style="border:1px solid #000; width:100%">
             <tr>
                 <td>번호</td>
@@ -50,7 +63,7 @@
 <?php 
   
   while($row = $result->fetch_assoc()) { 
- ?>
+?>
             <tr>
                 <td><?php echo $row["_id"]?></td>
                 <td>

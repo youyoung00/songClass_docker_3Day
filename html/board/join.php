@@ -1,5 +1,7 @@
 <?php
     session_start();
+
+
 ?>
 
 <html>
@@ -16,7 +18,7 @@
 
             이름 : <input type="text" name="name"> <br />
  
-            <input type="submit" value="등록하기"> 
+            <input type="submit" value="회원가입"> 
 
         </form>
 

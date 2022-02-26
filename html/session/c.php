@@ -1,6 +1,8 @@
-<?php
+<?php 
 
-    session_start(); // 세션 사용한다고 선언해줌.
+    session_start();
 
-    $_SESSION["test"] = "OKOKOKOKO";
+    $_SESSION["test"] = "OKOKOKOK";
+
+
 ?>

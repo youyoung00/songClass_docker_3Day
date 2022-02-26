@@ -9,4 +9,6 @@
     while($row = $result->fetch_assoc()) { 
         echo json_encode($row,JSON_UNESCAPED_UNICODE);
     }
+
+
 ?>
